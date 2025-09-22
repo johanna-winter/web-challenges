@@ -18,6 +18,7 @@
   overflow: hidden;
   border-radius: 8px;
   background-color: lightgoldenrodyellow;
+  font-size: 32px;
 }
 
 .animal {
@@ -38,6 +39,13 @@
   💡 Select the animals by their class names and use the text-align property.
 */
 
+.animal-giraffe {
+  text-align: center;
+}
+.animal-dino {
+  text-align: right;
+}
+
 /* 
   The animals want some color! 🎨
   When the mouse hovers over an animal, change the background color.
@@ -47,3 +55,13 @@
 
   💡 You'll need to use a pseudo-class selector for each animal.
 */
+
+.animal-crocodile:hover {
+  background-color: lightblue;
+}
+.animal-giraffe:hover {
+  background-color: lightgreen;
+}
+.animal-dino:hover {
+  background-color: lightsalmon;
+}
