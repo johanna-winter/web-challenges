@@ -18,6 +18,7 @@ main {
 }
 
 .box {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,13 +41,21 @@ main {
 }
 
 .box--top-right {
+  position: absolute;
+  top: 0;
+  right: 0;
   background-color: #5dade2;
 }
 
 .box--bottom-left {
+  position: absolute;
+  bottom: 0;
   background-color: #2874a6;
 }
 
 .box--bottom-right {
+  position: absolute;
+  bottom: 0;
+  right: 0;
   background-color: #1b4f72;
 }
