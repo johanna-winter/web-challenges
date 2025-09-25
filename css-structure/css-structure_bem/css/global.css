@@ -7,6 +7,8 @@
 :root {
   --primary: #ff4a11;
   --primary-text: #ffeae3;
+  --secondary: #efefef;
+  --secondary-text: #091429;
   --background: #e4e8f0;
   --text: #091429;
   --background-elevated: #9ca3af;
@@ -30,10 +32,6 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-
-button {
-  border: none;
 }
 
 ul {

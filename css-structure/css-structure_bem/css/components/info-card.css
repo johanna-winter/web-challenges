@@ -39,7 +39,16 @@
   font-size: 1rem;
 }
 
-button.primary {
+.buttons__default {
+  border: none;
+}
+
+.buttons__default.buttons__primary {
   background-color: var(--primary);
   color: var(--primary-text);
+}
+
+.buttons__default.buttons__secondary {
+  background-color: var(--secondary);
+  color: var(--secondary-text);
 }
