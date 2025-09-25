@@ -29,7 +29,7 @@ body {
 
 .container {
   display: grid;
-  gap: 20px;
+  gap: 10px;
   grid-template-columns: repeat(5, 1fr 2fr);
   grid-template-rows: repeat(10, 50px);
   padding: 10px;
@@ -56,25 +56,30 @@ body {
 }
 
 .element-1 {
-  /* Add styles here */
+  grid-column-start: 3;
+  grid-column-end: 5;
 }
 
 .element-2 {
-  /* Add styles here */
+  grid-column-start: 5;
+  grid-column-end: 11;
 }
 
 .element-5 {
-  /* Add styles here */
+  grid-column: span 2;
+  grid-row: span 2;
 }
 
 .element-8 {
-  /* Add styles here */
+  grid-row: span 2;
 }
 
 .element-spiced {
-  /* Add styles here */
+  grid-row-start: 1;
+  grid-column: span 10;
 }
 
 .element-20 {
-  /* Add styles here */
+  grid-row-start: 6;
+  grid-row-end: 8;
 }
