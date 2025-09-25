@@ -9,15 +9,16 @@ body {
   font-family: system-ui;
 }
 
-
-
 .image-board__container {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 300px 200px 300px;
   gap: 1rem;
   padding: 1rem;
-  /* Add styles here */
+  grid-template-areas:
+    "ban pine melon"
+    "pie pine cauli"
+    "pie toma cauli";
 }
 
 .image-board__image {
@@ -29,25 +30,25 @@ body {
 }
 
 .image-board__image--1 {
-  /* Add styles here */
+  grid-area: ban;
 }
 
 .image-board__image--2 {
-  /* Add styles here */
+  grid-area: pie;
 }
 
 .image-board__image--3 {
-  /* Add styles here */
+  grid-area: melon;
 }
 
 .image-board__image--4 {
-  /* Add styles here */
+  grid-area: pine;
 }
 
 .image-board__image--5 {
-  /* Add styles here */
+  grid-area: toma;
 }
 
 .image-board__image--6 {
-  /* Add styles here */
+  grid-area: cauli;
 }
