@@ -103,6 +103,15 @@ aside .location {
   like <body>, <main>, <aside>, <ul>, and .user with labeled overlays for easy identification.
 */
 
+ul .user .bio {
+  display: none;
+}
+
+ul .user .location {
+  text-align: left;
+  color: darkslategray;
+}
+
 /*
   Part 2
 
