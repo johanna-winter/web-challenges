@@ -9,14 +9,24 @@ console.clear();
 	- a boolean called `isReported` to indicate whether the post has been reported
 */
 
-// --v-- write your code here --v--
-
-// --^-- write your code here --^--
+const socialMediaTitle = "Best of September";
+const socialMediaContent =
+  "These are our favourite memories from September 2025.";
+let socialMediaLikes = 150;
+const socialMediaCreator = "Johanna";
+const isReported = true;
 
 /*
 2. Log all variables to the console. Then increase the number of likes by one and log the updated like count. Modify your code from step 1 if necessary.
 */
 
-// --v-- write your code here --v--
+console.log(
+  socialMediaTitle,
+  socialMediaContent,
+  socialMediaLikes,
+  socialMediaCreator,
+  isReported
+);
 
-// --^-- write your code here --^--
+socialMediaLikes += 1;
+console.log(socialMediaLikes);
