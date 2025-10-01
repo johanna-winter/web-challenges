@@ -21,4 +21,7 @@ const months = 12;
 
 const totalSavings = startingBalance + monthlyContribution * months;
 
-console.log(totalSavings);
+console.log(
+  "After " + months,
+  "months you will have saved " + totalSavings + "EUR."
+);
