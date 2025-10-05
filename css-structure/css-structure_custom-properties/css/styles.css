@@ -1,3 +1,13 @@
+:root {
+  --color-primary: #8336ff73;
+  --color-granite: #252629;
+  --color-nemo: #ff4a11;
+  --color-foam: #ffffff;
+
+  --border-radius-small: 4px;
+  --letter-spacing: 0.025em;
+}
+
 *,
 *::before,
 *::after {
@@ -11,7 +21,7 @@ body {
 }
 
 header {
-  background: #8336ff73;
+  background: var(--color-primary);
 }
 
 h1 {
@@ -19,13 +29,13 @@ h1 {
   color: var(--color-white);
   line-height: 1.4;
   margin: 0;
-  letter-spacing: 0.025em;
+  letter-spacing: var(--letter-spacing);
   text-transform: uppercase;
   padding-block: 16px;
 }
 
 h2 {
-  letter-spacing: 0.025em;
+  letter-spacing: var(--letter-spacing);
 }
 
 strong {
@@ -57,12 +67,12 @@ figure {
   gap: 10px;
   margin: 0;
   padding: 10px;
-  background-color: #ff4a11ff;
-  border-radius: 4px;
+  background-color: var(--color-nemo);
+  border-radius: var(--border-radius-small);
 }
 
 figcaption {
-  color: rgb(255 255 255);
+  color: var(--color-foam);
 }
 
 nav {
@@ -75,31 +85,25 @@ a {
   display: inline-block;
   font-size: smaller;
   padding: 8px;
-  border-radius: 4px;
+  border-radius: var(--border-radius-small);
   background-color: var(--color-nemo);
   color: var(--color-foam);
 }
 
 a:hover,
 a:focus-visible {
-  background-color: #8336ff7b;
+  background-color: var(--color-primary);
   text-decoration: none;
 }
 
 mark {
   background-color: var(--color-nemo);
-  color: #ffffff;
-  border-radius: 4px;
-  letter-spacing: 0.025em;
+  color: var(--color-foam);
+  border-radius: var(--border-radius-small);
+  letter-spacing: var(--letter-spacing);
 }
 
 ::selection {
-  background-color: #252629;
+  background-color: var(--color-granite);
   color: var(--color-nemo);
-}
-
-:root {
-  --color-granite: #a9a9a9;
-  --color-nemo: #ff4a11;
-  --color-foam: #ffffff;
 }
