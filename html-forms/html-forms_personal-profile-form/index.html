@@ -10,7 +10,47 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <h1>Create your Personal Profile</h1>
-    <form></form>
+    <h2 id="title">Create your Personal Profile</h2>
+    <form aria-labelledby="title" aria-describedby="description">
+      <p id="description">
+        We want to get to know you! Please enter your personal information.
+      </p>
+      <fieldset>
+        <legend>Personal Information</legend>
+        <label for="input-firstname">First Name:</label>
+        <input
+          name="form-firstname"
+          id="input-firstname"
+          type="text"
+          required
+        />
+        <label for="input-lastname">Last Name:</label>
+        <input name="form-lastname" id="input-lastname" type="text" required />
+        <label for="input-birthdate">Your Birthday:</label>
+        <input name="form-birthdate" id="input-birthdate" type="date" />
+      </fieldset>
+      <p>
+        Can you tell us a little bit more? We want to annoy you with unwanted
+        ads.
+      </p>
+      <fieldset>
+        <legend>Further Information</legend>
+        <label for="input-color">Favourite Color:</label>
+        <input
+          name="form-color"
+          id="input-color"
+          type="color"
+          value="#E5430F"
+        />
+        <label>What's your favourite pet?</label>
+        <select name="form-pets" id="select-pets">
+          <option value="">--Please choose an option--</option>
+          <option value="agra">Agra Cadabra</option>
+          <option value="chicken">Chicken Turtle</option>
+          <option value="jellyfish">Fried Egg Jellyfish</option>
+        </select>
+      </fieldset>
+      <button type="submit">Submit</button>
+    </form>
   </body>
 </html>
