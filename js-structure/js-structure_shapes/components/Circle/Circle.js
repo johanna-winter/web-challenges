@@ -1,0 +1,13 @@
+function Circle() {
+  const circle = document.createElement("div");
+  circle.classList.add("circle");
+  circle.addEventListener("click", () => {
+    circle.style.backgroundColor = getRandomColor();
+  });
+  return circle;
+}
+
+Circle();
+const circleElement = Circle();
+
+export default Circle;
