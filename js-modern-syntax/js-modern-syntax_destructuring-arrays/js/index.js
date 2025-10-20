@@ -8,6 +8,16 @@ Make sure to export your variable as shown in the example below to make the test
 
 const item = ["Egg", 0.25, 12];
 
+const [name, price, quantity] = item;
+console.log(
+  "Item name:",
+  name,
+  ", Item price:",
+  price,
+  ", Item quantity:",
+  quantity
+);
+
 // Example: export const [ value1, value2 ] = array;
 
 /*
@@ -16,6 +26,15 @@ Use array destructuring to extract the variables `firstNameOfChris`, `lastNameOf
 */
 
 const personChris = [12, "Chris", "Owen"];
+const [, firstNameOfChris, lastNameOfChris, ageOfChris = 35] = personChris;
+console.log(
+  "First Name:",
+  firstNameOfChris,
+  ", Last name:",
+  lastNameOfChris,
+  ", Age:",
+  ageOfChris
+);
 
 /*
 EXERCISE 3
@@ -24,6 +43,8 @@ Ensure no unused variables remain.
 */
 
 const personAlex = ["Alex", 12, "Main"];
+const [firstNameOfAlex, , lastNameOfAlex] = personAlex;
+console.log(personAlex);
 
 /*
 EXERCISE 4
