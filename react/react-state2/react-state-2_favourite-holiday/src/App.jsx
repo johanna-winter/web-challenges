@@ -16,6 +16,9 @@ export default function App() {
 
     setHoliday(data.holiday);
     setDate(data.date);
+
+    event.target.reset();
+    event.target.elements.holiday.focus();
   }
 
   return (
