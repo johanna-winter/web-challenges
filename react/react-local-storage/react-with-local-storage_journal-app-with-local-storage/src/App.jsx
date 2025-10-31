@@ -5,6 +5,7 @@ import EntryForm from "./components/EntryForm";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import { uid } from "uid";
+import useLocalStorageState from "use-local-storage-state";
 
 const initialEntries = [
   {
@@ -37,19 +38,23 @@ const initialEntries = [
 ];
 
 function App() {
-  const [entries, setEntries] = useState(initialEntries);
+  // const [entries, setEntries] = useState(initialEntries);
   const [filter, setFilter] = useState("all"); // "all" or "favorites"
+
+  const [newEntries, setNewEntries] = useLocalStorageState("entry", {
+    defaultValue: initialEntries,
+  });
 
   function handleAddEntry(newEntry) {
     const date = new Date().toLocaleDateString("en-us", {
       dateStyle: "medium",
     });
-    setEntries([{ id: uid(), date, ...newEntry }, ...entries]);
+    setNewEntries([{ id: uid(), date, ...newEntry }, ...newEntries]);
   }
 
   function handleToggleFavorite(id) {
-    setEntries(
-      entries.map((entry) =>
+    setNewEntries(
+      newEntries.map((entry) =>
         entry.id === id ? { ...entry, isFavorite: !entry.isFavorite } : entry
       )
     );
@@ -63,7 +68,7 @@ function App() {
     setFilter("all");
   }
 
-  const favoriteEntries = entries.filter((entry) => entry.isFavorite);
+  const favoriteEntries = newEntries.filter((entry) => entry.isFavorite);
 
   return (
     <div className="app">
@@ -71,9 +76,9 @@ function App() {
       <main className="app__main">
         <EntryForm onAddEntry={handleAddEntry} />
         <EntriesSection
-          entries={filter === "favorites" ? favoriteEntries : entries}
+          newEntries={filter === "favorites" ? favoriteEntries : newEntries}
           filter={filter}
-          allEntriesCount={entries.length}
+          allEntriesCount={newEntries.length}
           favoriteEntriesCount={favoriteEntries.length}
           onToggleFavorite={handleToggleFavorite}
           onShowAllEntries={handleShowAllEntries}

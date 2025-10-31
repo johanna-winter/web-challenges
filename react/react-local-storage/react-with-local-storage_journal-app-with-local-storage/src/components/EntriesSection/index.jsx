@@ -7,7 +7,7 @@ import Badge from "../Badge";
 import { Fragment } from "react";
 
 export default function EntriesSection({
-  entries,
+  newEntries,
   onToggleFavorite,
   filter,
   allEntriesCount,
@@ -30,7 +30,7 @@ export default function EntriesSection({
         </Tab>
       </Tabs>
       <div className="entries-section__entries">
-        {entries.map((entry, index) => (
+        {newEntries.map((entry, index) => (
           <Fragment key={entry.id}>
             {index > 0 ? <Divider /> : null}
             <Entry
