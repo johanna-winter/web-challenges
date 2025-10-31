@@ -1,4 +1,3 @@
-import { getD6Roll } from "../../utils";
 import D6 from "../D6";
 import "./D6Button.css";
 

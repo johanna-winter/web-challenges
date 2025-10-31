@@ -1,11 +1,13 @@
-import { useState } from "react";
 import { D6Button } from "./components/D6Button";
 import History from "./components/History";
 import "./styles.css";
 import { getD6Roll } from "./utils";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App() {
-  const [rolls, setRolls] = useState([]);
+  const [rolls, setRolls] = useLocalStorageState("rollHistory", {
+    defaultValue: [],
+  });
 
   const handleRoll = () => {
     setRolls([{ value: getD6Roll(), time: Date.now() }, ...rolls]);
