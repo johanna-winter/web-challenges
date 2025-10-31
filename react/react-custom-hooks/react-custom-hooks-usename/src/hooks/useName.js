@@ -1,3 +1,8 @@
+import { useState } from "react";
+
 export default function useName() {
-  return [null, null, null];
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const name = firstName + " " + lastName;
+  return [name, setFirstName, setLastName, firstName, lastName];
 }
