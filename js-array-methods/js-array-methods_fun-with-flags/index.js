@@ -9,10 +9,23 @@ queryInput.addEventListener("input", (event) => {
 
   const searchString = event.target.value;
 
-  const foundCountry = null;
+  /*
+    Part 1 Find method:
+    const foundCountry = countries.find((country) => {
+    return country.name.toLowerCase().startsWith(searchString.toLowerCase());
+  });
+  */
 
-  if (foundCountry) {
-    const countryElement = Country(foundCountry);
-    container.append(countryElement);
+  const foundCountries = countries.filter((country) => {
+    return country.name.toLowerCase().startsWith(searchString.toLowerCase());
+  });
+
+  console.log(foundCountries);
+
+  if (foundCountries.length > 0) {
+    foundCountries.forEach((country) => {
+      const countryElement = Country(country);
+      container.append(countryElement);
+    });
   }
 });
