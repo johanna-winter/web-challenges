@@ -5,67 +5,122 @@ import { employees } from "../utils/data.js";
 // Hint: use some()
 
 const hasEmployeesOlderThan65 = employees.some((employee) => employee.age > 65);
+console.log("Is there an employee over 65 years? ", hasEmployeesOlderThan65);
 
 // Now it's your turn...
 //----------------------------------------
 // QUESTION 2: Is there any employee with first name 'Frederique'?
 // Hint: use some()
 
-const employeeNamedFrederique = null;
+const employeeNamedFrederique = employees.some(
+  (employee) => employee.firstName.toLowerCase() === "Frederique".toLowerCase()
+);
+console.log("Is there an employee named Frederique? ", employeeNamedFrederique);
 
 //----------------------------------------
 // QUESTION 3: Is there any employee younger than 18 years?
 // Hint: use some()
 
-const employeeYoungerThan18 = null;
+const employeeYoungerThan18 = employees.some((employee) => employee.age > 18);
+console.log(
+  "Is there an employee younger than 18 years? ",
+  employeeYoungerThan18
+);
 
 //----------------------------------------
 // QUESTION 4: Has every employee a phone number?
 // Hint: use every()
 
-const everyEmployeeHasPhoneNumber = null;
+const everyEmployeeHasPhoneNumber = employees.every(
+  (employee) => employee.phone?.trim() !== ""
+);
+console.log(
+  "Do all employees have a phone number? ",
+  everyEmployeeHasPhoneNumber
+);
 
 //----------------------------------------
 // QUESTION 5: Does every id start with '0'?
 // Hint: Use every()
 
-const everyIdStartsWith0 = null;
+const everyIdStartsWith0 = employees.every((employee) =>
+  employee.id.startsWith("0")
+);
+console.log("Does every id start with 0? ", everyIdStartsWith0);
 
 //----------------------------------------
 // QUESTION 6: Has every employee a first name AND a last name?
 // Hint: use every()
 
-const everyEmployeeHasFirstAndLastName = null;
+const everyEmployeeHasFirstAndLastName = employees.every(
+  (employee) => employee.firstName.trim() && employee.lastName.trim() !== ""
+);
+console.log(
+  "Does every employee have a first and last name? ",
+  everyEmployeeHasFirstAndLastName
+);
 
 //----------------------------------------
 // QUESTION 7: Can you find the employee named 'Louise' that is 33 years old?
 // Hint: use find()
 
-const employeeLouise33 = null;
+const employeeLouise33 = employees.find(
+  (employee) => employee.firstName === "Louise" && employee.age === 33
+);
+console.log(
+  "Can you find the employee name Louise that is 33 years old? ",
+  employeeLouise33
+);
 
 //----------------------------------------
 // QUESTION 8: We need to find the employee with the id '0.0795620650485831'
 // Hint: Use find()
 
-const employeeWithId = null;
+const employeeWithId = employees.find(
+  (employee) => employee.id === "0.0795620650485831"
+);
+console.log(
+  "Find the employee with the id '0.0795620650485831': ",
+  employeeWithId
+);
 
 //----------------------------------------
 // QUESTION 9: Please find the employee with first name 'Edna' and profession 'Investment Manager'
 // Hint: use find()
 
-const ednaInvestment = null;
+const ednaInvestment = employees.find(
+  (employee) =>
+    employee.firstName === "Edna" &&
+    employee.profession.toLowerCase() === "Investment Manager".toLowerCase()
+);
+console.log("Can you find Edna, the Investment Manager? ", ednaInvestment);
 
 //----------------------------------------
 // QUESTION 10: We need a new employees array now sorted by age ascending (1 -> 100)
 // Hint: Use toSorted()
 
-const employeesSortedByAge = null;
+const employeesSortedByAge = employees.toSorted((a, b) => a.age - b.age);
+console.log("New employees array sorted by age: ", employeesSortedByAge);
 
 //----------------------------------------
 // QUESTION 11: We want a new employees array sorted by last name descending (Z -> A)
 // Hint use toSorted()
 
-const employeesSortedByLastName = null;
+const employeesSortedByLastName = employees.toSorted((a, b) => {
+  const nameA = a.lastName.toLowerCase();
+  const nameB = b.lastName.toLowerCase();
+  if (nameA > nameB) {
+    return -1;
+  }
+  if (nameA < nameB) {
+    return 1;
+  }
+  return 0;
+});
+console.log(
+  "New employees array sorted by last name: ",
+  employeesSortedByLastName
+);
 
 // Great! 🎉 You got it! 🚀 Now you can read the solution of the letter puzzle. 💪
 
