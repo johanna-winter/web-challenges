@@ -44,7 +44,7 @@ Ensure no unused variables remain.
 
 const personAlex = ["Alex", 12, "Main"];
 const [firstNameOfAlex, , lastNameOfAlex] = personAlex;
-console.log(personAlex);
+console.log(firstNameOfAlex, lastNameOfAlex, personAlex);
 
 /*
 EXERCISE 4
@@ -53,6 +53,8 @@ as variable called `lastName`.
 */
 
 const students = ["Christina", "Jon", "Alexandare"];
+const [, , lastName] = students;
+console.log("Last name from array: ", lastName);
 
 /*
 EXERCISE 5
@@ -61,6 +63,18 @@ Assign each name to a variable called "student1" through "student5", in the give
 */
 
 const nestedStudents = ["Chris", ["Ahmad", "Antigoni"], ["Toby", "Sam"]];
+const [student1, [student2, student3], [student4, student5]] = nestedStudents;
+console.log(
+  student1,
+  ",",
+  student2,
+  ",",
+  student3,
+  ",",
+  student4,
+  ",",
+  student5
+);
 
 /*
 EXERCISE 6
@@ -70,10 +84,11 @@ Keep in mind that you need to export the variable `result` to make the test work
 
 const values = [1, 6, 7, 9, 12, 5, 4];
 
-const result = add(1); // Spread values inside this function call
+export const result = add(...values); // Spread values inside this function call
 
 function add(...values) {
   return values.reduce(
     (previousValue, currentValue) => previousValue + currentValue
   );
 }
+console.log(add(...values));
