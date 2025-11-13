@@ -1,4 +1,4 @@
-// Find the maximum
+// 1. Find the maximum
 function maxOfTwoNumbers(num1, num2) {
   if (num1 > num2) {
     return num1;
@@ -16,7 +16,7 @@ Dry run:
 2 - I won't need to compare it to other numbers because there are only two in total (no else needed)
 */
 
-// Find the longest word
+// 2. Find the longest word
 
 const words = ["Jaws", "Up", "Alien", "Gravity", "Inception", "Psycho"];
 
@@ -42,26 +42,25 @@ console.log("Longest word: ", findLongestWord(words));
 5 - When there is no more words, return the longest variable
 */
 
-// Calculate the sum
+// 3. Calculate the sum
 
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
 function sumNumbers(numbers) {
+  // start with a sum of 0
   let sum = 0;
-  for (i = 0; i < numbers.length; i++) {
+  // visit every number of the array, starting with index 0
+  // keep the loop running incrementing one as long as the index is less than the array length,
+  for (let i = 0; i < numbers.length; i++) {
+    // add the current number of the loop to running total
     sum += numbers[i];
   }
-  console.log("Sum of all numbers: ", sum);
+  return sum;
 }
+// print the result to the console
+console.log("Sum of all numbers: ", sumNumbers(numbers));
 
-sumNumbers(numbers);
-
-/*
-1 - I want to add all numbers of the array together
-2 - To do that, I will have to visit every number
-*/
-
-// Calculate the average length of the words
+// 4. Calculate the average length of the words
 
 const words2 = [
   "eclipse",
@@ -77,10 +76,20 @@ const words2 = [
 ];
 
 function averageWordLength(words) {
+  let totalWordLength = 0;
+  for (let i = 0; i < words.length; i++) {
+    totalWordLength += words[i].length;
+  }
   // TODO:
+  // 1 - find out how long each word is (e.g. words2[0].length)
+  // 2 - add the lengths of all words together
+  // 3 - divide by the number of words (10)
+  return totalWordLength / words.length;
 }
 
-// Unique arrays - return an array without duplicates
+console.log("Average word length: ", averageWordLength(words2));
+
+// 5. Unique arrays - return an array without duplicates
 
 const words3 = [
   "crab",
@@ -97,10 +106,22 @@ const words3 = [
 ];
 
 function uniquifyArray(words) {
-  // TODO:
+  // start with an empty array
+  let uniqueWords = [];
+  // loop over words, only add to new array if it doesn't already include the word
+  for (let i = 0; i < words.length; i++) {
+    let word = words[i];
+    if (!uniqueWords.includes(word)) {
+      uniqueWords.push(word);
+    }
+  }
+  // return the new array at the end
+  return uniqueWords;
 }
 
-// Find elements
+console.log(uniquifyArray(words3));
+
+// 6. Find elements
 const wordsFind = [
   "machine",
   "subset",
@@ -113,10 +134,25 @@ const wordsFind = [
 ];
 
 function doesWordExist(haystack, needle) {
-  // TODO:
+  // 1. if array empty, return null or false
+  if (haystack.length === 0) return null;
+  // 2. loop through haystack, check each element
+  for (let i = 0; i < haystack.length; i++) {
+    // 3. get the current word
+    let word = haystack[i];
+    // 4. return true if match
+    if (word === needle) {
+      return true;
+    }
+  }
+  // 5. return false if none
+  return false;
+  // TODO: check if a specific word (needle) is in the array (haystack)
+  // return haystack.includes(needle);
 }
+console.log("Does this word exist? ", doesWordExist(wordsFind, "starting"));
 
-// Count repetition
+// 7. Count repetition
 
 const wordsCount = [
   "machine",
@@ -133,8 +169,24 @@ const wordsCount = [
 ];
 
 function howManyTimes(haystack, needle) {
+  // start with count = 0
+  let count = 0;
+  // loop through the array
+  for (let i = 0; i < haystack.length; i++) {
+    let currentWord = haystack[i];
+    // if the current word equals needle, increment the counter
+    if (currentWord === needle) {
+      count += 1;
+    }
+  }
+  return count;
   // TODO:
 }
+
+console.log(
+  "How many times is the word matter in the array? ",
+  howManyTimes(wordsCount, "matter")
+);
 
 // Bonus: A generic sum function
 // for strings use the length of the string, for booleans use 1 and 0
@@ -152,8 +204,26 @@ const mixedArray = [
 ];
 
 function sum(array) {
-  // TODO:
+  // start total at 0
+  let total = 0;
+  // loop through every element in the array
+  for (let i = 0; i < array.length; i++) {
+    let item = array[i];
+    if (typeof item === "number") {
+      // handle number, add it directly to total
+      total += item;
+    } else if (typeof item === "string") {
+      // handle string, add its length to total
+      total += item.length;
+    } else if (typeof item === "boolean") {
+      // handle boolean, add 1 if true, 0 if false
+      total += item ? 1 : 0;
+    }
+  }
+  return total;
 }
+
+console.log("This is the sum of the mixedArray: ", sum(mixedArray));
 
 // Bonus: Write a function that calculates the greatest product of four
 // numbers that is either horizontally or vertically in the array
@@ -224,8 +294,42 @@ const matrix = [
 ];
 
 function greatestProduct(matrix) {
-  // TODO:
+  let maxProduct = 0;
+  // outer loop: vertical rows
+  for (let i = 0; i < matrix.length; i++) {
+    // inner loop: horizontal columns
+    for (let j = 0; j < matrix[i].length; j++) {
+      // loggin row index, column index, then checking the value at that row/column position
+      console.log(i, j, matrix[i][j]);
+      // For each number, multiply the 4 numbers in a row (if possible)
+      // If the current column index (j) is less than or equal to the total number of columns in this row minus 4,
+      // then I have enough space to look at 4 numbers horizontally.
+      if (j <= matrix[i].length - 4) {
+        const product =
+          matrix[i][j] * matrix[i][j + 1] * matrix[i][j + 2] * matrix[i][j + 3];
+        console.log("product of 4 horizontal numbers: ", product);
+        if (product > maxProduct) {
+          maxProduct = product;
+        }
+      }
+      // and the 4 numbers in a column (if possible).
+      // Compare both results to the current max — keep the largest.
+      if (i <= matrix.length - 4) {
+        const product =
+          matrix[i][j] * matrix[i + 1][j] * matrix[i + 2][j] * matrix[i + 3][j];
+        console.log("product of 4 vertical numbers: ", product);
+        if (product > maxProduct) {
+          maxProduct = product;
+        }
+      }
+    }
+  }
+  return maxProduct;
+  // TODO: loop through every sub array inside matrix (horizontally), start with index 0 for as long as matrix.length &
+  // make use of the previously declared index i to check matrix[i].length for each column -> nested for loop
 }
+
+console.log("Greatest product: ", greatestProduct(matrix));
 
 module.exports = {
   maxOfTwoNumbers,
