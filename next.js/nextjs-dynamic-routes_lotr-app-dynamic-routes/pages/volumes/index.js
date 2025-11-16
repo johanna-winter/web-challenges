@@ -4,6 +4,7 @@ import { introduction, volumes } from "../../lib/data";
 export default function Volumes() {
   return (
     <>
+      <Link href="/">Go back</Link>
       <h1>The Lord of the Rings</h1>
       <p>{introduction}</p>
       <ul>
