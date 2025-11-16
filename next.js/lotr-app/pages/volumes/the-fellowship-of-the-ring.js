@@ -7,27 +7,49 @@ export default function HomePage() {
     ({ slug }) => slug === "the-fellowship-of-the-ring"
   );
   console.log(volumes[0]);
-  console.log("Books:", volume.books[0].ordinal, ",", volume.books[1].ordinal);
+
+  const index = volumes.findIndex((vol) => vol.slug === volume.slug);
+  // // console.log("Books:", volume.books[0].ordinal, ",", volume.books[1].ordinal);
+  const nextVolume = volumes[index + 1];
+  const prevVolume = volumes[index - 1];
+
+  const { title, description, cover, books } = volume;
+
   return (
     <>
       <Link href="/volumes">← All Volumes</Link>
-      <h1>{volume.title}</h1>
-      <p>{volume.description}</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
       <ul>
-        <li>
-          {volume.books[0].ordinal}: {volume.books[0].title}
+        {books.map((book) => {
+          return (
+            <li key={title}>
+              {book.ordinal}: {book.title}
+            </li>
+          );
+        })}
+        {/* <li>
+          {books.volume.ordinal}: {volume.books[0].title}
         </li>
         <li>
           {volume.books[1].ordinal}: {volume.books[1].title}
-        </li>
+        </li> */}
       </ul>
-      <Image
-        src={volume.cover}
-        // Image path: /Users/johanna/web-bootcamp/web-challenges/next.js/lotr-app/public/images/the-fellowship-of-the-ring.png
-        alt="The Fellowship of the Ring"
-        width={140}
-        height={230}
-      ></Image>
+      <Image src={cover} alt={`${title}`} width={140} height={230}></Image>
+      {prevVolume ? (
+        <div>
+          <Link href={`/volumes/${prevVolume.slug}`}>
+            ← Previous Volume: {prevVolume.title}
+          </Link>
+        </div>
+      ) : null}
+      {nextVolume ? (
+        <div>
+          <Link href={`/volumes/${nextVolume.slug}`}>
+            Next volume: {nextVolume.title} →
+          </Link>
+        </div>
+      ) : null}
     </>
   );
 }
