@@ -1,3 +1,4 @@
 import { server } from "./server.js";
 
-server.listen(8000);
+const port = 8000;
+server.listen(port);
