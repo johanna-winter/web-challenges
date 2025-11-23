@@ -8,7 +8,8 @@ const colors = ["#e0f7fa", "#ffe0b2", "#c8e6c9", "#ffccbc", "#d1c4e9"]; // Light
 let currentColorIndex = 0;
 
 changeColorButton.addEventListener("click", () => {
-  // Add your solution below
+  currentColorIndex = (currentColorIndex + 1) % colors.length;
+  colorChangeCard.style.backgroundColor = colors[currentColorIndex];
 });
 
 /*  -----------------------------------------------------------
@@ -28,7 +29,12 @@ const loaderContainer = document.querySelector("[data-js=loaderContainer]");
 let loaderActive = false;
 
 toggleLoaderButton.addEventListener("click", () => {
-  // Add your solution below
+  loaderActive = !loaderActive;
+  if (loaderActive) {
+    loaderContainer.classList.add("active");
+  } else {
+    loaderContainer.classList.remove("active");
+  }
 });
 
 /*  -----------------------------------------------------------
@@ -38,5 +44,5 @@ const slideInButton = document.querySelector("[data-js=slideInButton]");
 const slideInBox = document.querySelector("[data-js=slideInBox]");
 
 slideInButton.addEventListener("click", () => {
-  // Add your solution below
+  slideInBox.classList.toggle("active");
 });
