@@ -9,5 +9,13 @@ export default async function handler(request, response) {
     response.status(200).json(products);
     return;
   }
+  if (request.method === "POST") {
+    console.log("request.body: ", request.method);
+
+    const productData = request.body;
+    await Product.create(productData);
+    response.status(201).json({ status: "Product created" });
+    return;
+  }
   response.status(405).json({ status: "Method not allowed" });
 }

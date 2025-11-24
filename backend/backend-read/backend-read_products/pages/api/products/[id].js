@@ -7,7 +7,7 @@ export default async function handler(request, response) {
 
   // const product = products.find((product) => product.id === id);
   if (request.method === "GET") {
-    const product = await Product.findById(id);
+    const product = await Product.findById(id).populate("reviews");
     if (!product) {
       response.status(404).json({ status: "Not Found" });
       return;

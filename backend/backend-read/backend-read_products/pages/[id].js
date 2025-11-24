@@ -2,6 +2,7 @@ import useSWR from "swr";
 import styled from "styled-components";
 import { useRouter } from "next/router";
 import StyledLink from "@/components/Link";
+import Comments from "@/components/Comments";
 
 export default function Product() {
   const router = useRouter();
@@ -18,14 +19,17 @@ export default function Product() {
   }
 
   return (
-    <ProductCard>
-      <h2>{data.name}</h2>
-      <p>Description: {data.description}</p>
-      <p>
-        Price: {data.price} {data.currency}
-      </p>
-      <StyledLink href="/">Back to all</StyledLink>
-    </ProductCard>
+    <>
+      <ProductCard>
+        <h2>{data.name}</h2>
+        <p>Description: {data.description}</p>
+        <p>
+          Price: {data.price} {data.currency}
+        </p>
+        <StyledLink href="/">Back to all</StyledLink>
+      </ProductCard>
+      <Comments reviews={data.reviews} />
+    </>
   );
 }
 
