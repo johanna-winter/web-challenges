@@ -1,8 +1,23 @@
 import ProductForm from "@/components/ProductForm";
 import ProductList from "@/components/ProductList";
 import styled from "styled-components";
+import useSWR from "swr";
 
 export default function HomePage() {
+  const { mutate } = useSWR("/api/products");
+
+  async function handleAddProduct(data) {
+    const response = await fetch("/api/products", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      mutate();
+    }
+  }
+
   return (
     <>
       <Heading>
@@ -11,7 +26,7 @@ export default function HomePage() {
         </span>
         Fish Shop
       </Heading>
-      <ProductForm />
+      <ProductForm onSubmit={handleAddProduct} title="Add a new Fish" />
       <hr />
       <ProductList />
     </>

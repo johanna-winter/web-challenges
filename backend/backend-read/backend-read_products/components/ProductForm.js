@@ -1,29 +1,20 @@
 import styled from "styled-components";
 import StyledButton from "@/components/Button";
-import useSWR from "swr";
 
-export default function ProductForm() {
-  const { mutate } = useSWR("api/products");
-
+export default function ProductForm({ onSubmit, title }) {
   async function handleSubmit(event) {
     event.preventDefault();
 
     const formData = new FormData(event.target);
     const productData = Object.fromEntries(formData);
 
-    const response = await fetch("api/products", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(productData),
-    });
-    if (response.ok) {
-      mutate();
-    }
+    await onSubmit(productData);
+    event.target.reset();
   }
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledHeading>Add a new Fish</StyledHeading>
+      <StyledHeading>{title}</StyledHeading>
       <StyledLabel htmlFor="name">
         Name:
         <input type="text" id="name" name="name" />
