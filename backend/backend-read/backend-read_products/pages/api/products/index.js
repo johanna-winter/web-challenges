@@ -10,7 +10,7 @@ export default async function handler(request, response) {
     return;
   }
   if (request.method === "POST") {
-    console.log("request.body: ", request.method);
+    console.log("request.body: ", request.body);
 
     const productData = request.body;
     await Product.create(productData);
